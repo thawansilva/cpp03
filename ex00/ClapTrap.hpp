@@ -19,7 +19,7 @@ public:
 	int			getEnergy(void) const;
 	int			getDamage(void) const;
 
-private:
+protected:
 	std::string	name;
 	int			hit;
 	int			energy;

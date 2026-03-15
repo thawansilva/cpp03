@@ -3,12 +3,12 @@
 ClapTrap::ClapTrap(const std::string& name): name(name), hit(10),
 	energy(10), damage(0)
 {
-	std::cout << name << " created" << std::endl;
+	std::cout << "ClapTrap "<< name << " created" << std::endl;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << name << " destroyed" << std::endl;
+	std::cout << "ClapTrap "<< name << " destroyed" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
@@ -41,7 +41,7 @@ void	ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	hit -= amount;
+	hit = std::max(0, hit - (int)amount);
 	energy--;
 }
 
@@ -79,6 +79,6 @@ std::ostream&	operator<<(std::ostream &out, const ClapTrap& src)
 	out << " has:\n";
 	out << src.getHit() << " of health\n";
 	out << src.getEnergy() << " of energy\n";
-	out << src.getDamage();
+	out << src.getDamage() << " of damage";
 	return (out);
 }

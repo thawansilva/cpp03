@@ -1,13 +1,14 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(const std::string name): name(name), hit(10), energy(10), damage(0)
+ClapTrap::ClapTrap(const std::string& name): name(name), hit(10),
+	energy(10), damage(0)
 {
 	std::cout << name << " created" << std::endl;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << this->name << " destroyed" << std::endl;
+	std::cout << name << " destroyed" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
@@ -70,4 +71,14 @@ int			ClapTrap::getEnergy(void) const
 int			ClapTrap::getDamage(void) const
 {
 	return damage;
+}
+
+std::ostream&	operator<<(std::ostream &out, const ClapTrap& src)
+{
+	out << src.getName();
+	out << " has:\n";
+	out << src.getHit() << " of health\n";
+	out << src.getEnergy() << " of energy\n";
+	out << src.getDamage();
+	return (out);
 }

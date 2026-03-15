@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thaperei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/15 16:00:10 by thaperei          #+#    #+#             */
+/*   Updated: 2026/03/15 16:00:11 by thaperei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 #include <iostream>
 
@@ -17,13 +29,13 @@ public:
 	std::string	getName(void) const;
 	int			getHit(void) const;
 	int			getEnergy(void) const;
-	int			getDamage(void) const;
+	int			getAttackDamage(void) const;
 
 protected:
 	std::string	name;
-	int			hit;
-	int			energy;
-	int			damage;
+	int			hitPoint;
+	int			energyPoint;
+	int			attackDamage;
 };
 
 std::ostream&	operator<<(std::ostream &out, const ClapTrap& src);

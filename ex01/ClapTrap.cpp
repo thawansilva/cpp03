@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thaperei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/15 16:00:03 by thaperei          #+#    #+#             */
+/*   Updated: 2026/03/15 16:04:07 by thaperei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(const std::string& name): name(name), hit(10),
-	energy(10), damage(0)
+ClapTrap::ClapTrap(const std::string& name): name(name), hitPoint(10),
+	energyPoint(10), attackDamage(0)
 {
 	std::cout << "ClapTrap "<< name << " created" << std::endl;
 }
@@ -21,36 +33,39 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 	if (this != &other)
 	{
 		name = other.getName();
-		hit = other.getHit();
-		energy = other.getEnergy();
-		damage = other.getDamage();
+		hitPoint = other.getHit();
+		energyPoint = other.getEnergy();
+		attackDamage = other.getAttackDamage();
 	}
 	return *this;
 }
 
 void	ClapTrap::attack(const std::string& target)
 {
-	if (energy <= 0 || hit <= 0)
+	if (energyPoint <= 0 || hitPoint <= 0)
 		return ;
-	energy--;
+	energyPoint--;
 	std::cout << "ClapTrap " ;
 	std::cout << name << " attacks ";
 	std::cout << target << ", causing ";
-	std::cout << damage << " points of damage!" << std::endl;
+	std::cout << attackDamage << " points of damage!" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	hit = std::max(0, hit - (int)amount);
-	energy--;
+	hitPoint = std::max(0, hitPoint - (int)amount);
+	std::cout << name << " took ";
+	std::cout << amount << " points of damage!" << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (energy <= 0 || hit <= 0)
+	if (energyPoint <= 0 || hitPoint <= 0)
 		return ;
-	hit += amount;
-	energy--;
+	hitPoint += amount;
+	energyPoint--;
+	std::cout << name << " was repaired by ";
+	std::cout << amount << " hit points" << std::endl;
 }
 
 std::string	ClapTrap::getName(void) const
@@ -60,17 +75,17 @@ std::string	ClapTrap::getName(void) const
 
 int			ClapTrap::getHit(void) const
 {
-	return hit;
+	return hitPoint;
 }
 
 int			ClapTrap::getEnergy(void) const
 {
-	return energy;
+	return energyPoint;
 }
 
-int			ClapTrap::getDamage(void) const
+int			ClapTrap::getAttackDamage(void) const
 {
-	return damage;
+	return attackDamage;
 }
 
 std::ostream&	operator<<(std::ostream &out, const ClapTrap& src)
@@ -79,6 +94,6 @@ std::ostream&	operator<<(std::ostream &out, const ClapTrap& src)
 	out << " has:\n";
 	out << src.getHit() << " of health\n";
 	out << src.getEnergy() << " of energy\n";
-	out << src.getDamage() << " of damage";
+	out << src.getAttackDamage() << " of damage";
 	return (out);
 }

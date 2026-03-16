@@ -24,39 +24,8 @@ int main()
 	separator("CLAPTRAP BASICO");
 	
 	ClapTrap a("Alpha");
-	ClapTrap b("Beta");
-	
-	a.attack("Beta");
-	b.takeDamage(0);
-	b.beRepaired(5);
-	
-	separator("ENERGIA ACABANDO");
-	
-	for (int i = 0; i < 12; i++)
-		a.attack("dummy");
-	
-	separator("DANO EXCESSIVO");
-	
-	b.takeDamage(1000);
-	b.attack("ghost");
-	b.beRepaired(5);
-	
-	separator("SCAVTRAP TEST");
-	
-	ScavTrap s("Guardian");
-	
-	s.attack("enemy");
-	s.takeDamage(30);
-	s.beRepaired(10);
-	s.guardGate();
-
-	separator("FRAGTRAP TEST");
-
-	FragTrap f("Fraggy");
-	f.attack("enemy");
-	f.takeDamage(50);
-	f.beRepaired(25);
-	f.highFivesGuys();
+	ScavTrap b("Betha");
+	FragTrap f("Frag");
 
 	separator("DIAMONDTRAP TEST");
 	DiamondTrap d("Diamond");
@@ -65,6 +34,8 @@ int main()
 	d.takeDamage(40);
 	d.beRepaired(20);
 	d.whoami();
+	d.highFivesGuys();
+	d.guardGate();
 	
 	separator("COPIA E ATRIBUICAO");
 	
@@ -83,7 +54,6 @@ int main()
 	separator("RESULT");
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
-	std::cout << s << std::endl;
 	std::cout << f << std::endl;
 	std::cout << d << std::endl;
 	std::cout << d2 << std::endl;

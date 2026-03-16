@@ -12,11 +12,10 @@
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name),
+DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name"),
 	ScavTrap(""), FragTrap("")
 {
 	this->name = name;
-	ClapTrap::name = name + "_clap_name";
 	this->hitPoint = FragTrap::hitPoint;
 	this->energyPoint = ScavTrap::energyPoint;
 	this->attackDamage = FragTrap::attackDamage;
@@ -37,10 +36,11 @@ DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& other)
 {
 	if (this != &other)
 	{
-		this->name = other.ClapTrap::hitPoint;
-		this->hitPoint = other.FragTrap::hitPoint;
-		this->energyPoint = other.ScavTrap::energyPoint;
-		this->attackDamage = other.FragTrap::attackDamage;
+		this->name = other.hitPoint;
+		this->ClapTrap::name = other.name;
+		this->hitPoint = other.hitPoint;
+		this->energyPoint = other.energyPoint;
+		this->attackDamage = other.attackDamage;
 	}
 	return *this;
 }

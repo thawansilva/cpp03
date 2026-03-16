@@ -12,58 +12,58 @@
 
 #include "ScavTrap.hpp"
 
-	ScavTrap::ScavTrap(const std::string& name): ClapTrap(name)
-	{
-		hitPoint = 100;
-		energyPoint = 50;
-		attackDamage = 20;
-		std::cout << "ScavTrap " << name << " created" << std::endl;
-	}
+ScavTrap::ScavTrap(const std::string& name): ClapTrap(name)
+{
+	hitPoint = 100;
+	energyPoint = 50;
+	attackDamage = 20;
+	std::cout << "ScavTrap " << name << " created" << std::endl;
+}
 
-	ScavTrap::~ScavTrap()
-	{
-		std::cout << "ScavTrap "<< name << " destroyed" << std::endl;
-	}
+ScavTrap::~ScavTrap()
+{
+	std::cout << "ScavTrap "<< name << " destroyed" << std::endl;
+}
 
-	ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other)
-	{
-		*this = other;
-	}
+ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other)
+{
+	*this = other;
+}
 
-	ScavTrap&	ScavTrap::operator=(const ScavTrap& other)
+ScavTrap&	ScavTrap::operator=(const ScavTrap& other)
+{
+	if (this != &other)
 	{
-		if (this != &other)
-		{
-			name = other.getName();
-			hitPoint = other.getHit();
-			energyPoint = other.getEnergy();
-			attackDamage = other.getAttackDamage();
-		}
-		return *this;
+		this->name = other.name;
+		this->hitPoint = other.hitPoint;
+		this->energyPoint = other.energyPoint;
+		this->attackDamage = other.attackDamage;
 	}
+	return *this;
+}
 
-	void	ScavTrap::attack(const std::string& target)
-	{
-		if (energyPoint <= 0 || hitPoint <= 0)
-			return ;
-		energyPoint--;
-		std::cout << "ScavTrap " ;
-		std::cout << name << " attacks ";
-		std::cout << target << ", causing ";
-		std::cout << attackDamage << " points of damage!" << std::endl;
-	}
+void	ScavTrap::attack(const std::string& target)
+{
+	if (this->energyPoint <= 0 || this->hitPoint <= 0)
+		return ;
+	this->energyPoint--;
+	std::cout << "ScavTrap " ;
+	std::cout << this->name << " attacks ";
+	std::cout << target << ", causing ";
+	std::cout << this->attackDamage << " points of damage!" << std::endl;
+}
 
-	void	ScavTrap::guardGate()
-	{
-		std::cout << name << " is in Gate keeper mode" << std::endl;
-	}
+void	ScavTrap::guardGate()
+{
+	std::cout << name << " is in Gate keeper mode" << std::endl;
+}
 
-	std::ostream&	operator<<(std::ostream& out, const ScavTrap& src)
-	{
-		out << "ScavTrap ";
-		out << src.getName();
-		out << " has:\n";
-		out << src.getHit() << " of health\n";
+std::ostream&	operator<<(std::ostream& out, const ScavTrap& src)
+{
+	out << "ScavTrap ";
+	out << src.getName();
+	out << " has:\n";
+	out << src.getHit() << " of health\n";
 	out << src.getEnergy() << " of energy\n";
 	out << src.getAttackDamage() << " of damage";
 	return (out);

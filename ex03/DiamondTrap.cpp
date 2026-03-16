@@ -12,14 +12,23 @@
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(const std::string name): ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name),
+	ScavTrap(""), FragTrap("")
 {
+	this->name = name;
+	ClapTrap::name = name + "_clap_name";
+	this->hitPoint = FragTrap::hitPoint;
+	this->energyPoint = ScavTrap::energyPoint;
+	this->attackDamage = FragTrap::attackDamage;
+	std::cout << "DiamondTrap " << name << " created" << std::endl;
 }
 
 DiamondTrap::~DiamondTrap()
-{}
+{
+	std::cout << "DiamondTrap "<< name << " destroyed" << std::endl;
+}
 
-DiamondTrap::DiamondTrap(const DiamondTrap& other): ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(const DiamondTrap& other): ClapTrap(other), ScavTrap(other), FragTrap(other)
 {
 	*this = other;
 }
@@ -28,17 +37,32 @@ DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& other)
 {
 	if (this != &other)
 	{
-		_value = other._value;
+		this->name = other.ClapTrap::hitPoint;
+		this->hitPoint = other.FragTrap::hitPoint;
+		this->energyPoint = other.ScavTrap::energyPoint;
+		this->attackDamage = other.FragTrap::attackDamage;
 	}
 	return *this;
 }
 
-void	whoami()
+void			DiamondTrap::attack(const std::string& target)
 {
+	ScavTrap::attack(target);
+}
 
+void	DiamondTrap::whoami()
+{
+	std::cout << "My name is " << name;
+	std::cout << " and my ClapTrap Name " << ClapTrap::name << std::endl;
 }
 
 std::ostream&	operator<<(std::ostream& out, const DiamondTrap& src)
 {
+	out << "DiamondTrap ";
+	out << src.getName();
+	out << " has:\n";
+	out << src.getHit() << " of health\n";
+	out << src.getEnergy() << " of energy\n";
+	out << src.getAttackDamage() << " of damage";
 	return (out);
 }

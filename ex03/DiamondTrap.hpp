@@ -11,19 +11,22 @@
 /* ************************************************************************** */
 
 #pragma once
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class DiamondTrap: public ScavTrap, public FragTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
 public:
-
-	DiamondTrap();
+	DiamondTrap(const std::string& name);
 	~DiamondTrap();
 	DiamondTrap(const DiamondTrap& other);
-	DiamondTrap& operator=(const DiamondTrap& other);
+	DiamondTrap&	operator=(const DiamondTrap& other);
 
-	void	whoami();
+	// Member functions
+	void			attack(const std::string& target);
+	void			whoami();
 private:
-	int _value;
+	std::string		name;
 };
 
 std::ostream&	operator<<(std::ostream& out, const DiamondTrap& src);

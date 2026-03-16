@@ -33,7 +33,7 @@ int main()
 	d.attack("boss");
 	d.takeDamage(40);
 	d.beRepaired(20);
-	d.whoami();
+	d.whoAmI();
 	d.highFivesGuys();
 	d.guardGate();
 	

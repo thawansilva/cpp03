@@ -12,6 +12,7 @@
 
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 void separator(std::string title)
 {
@@ -57,34 +58,35 @@ int main()
 	f.beRepaired(25);
 	f.highFivesGuys();
 
+	separator("DIAMONDTRAP TEST");
+	DiamondTrap d("Diamond");
+	
+	d.attack("boss");
+	d.takeDamage(40);
+	d.beRepaired(20);
+	d.whoami();
+	
+	separator("COPIA E ATRIBUICAO");
+	
+	ClapTrap c(a);
+	c.attack("copy-target");
+	
+	ClapTrap d2("Temp");
+	d2 = a;
+	d2.attack("assigned-target");
+	
+	separator("DESTRUICAO EM CASCATA");
+	{
+		DiamondTrap temp("TempDiamond");
+		temp.attack("enemy");
+	}
 	separator("RESULT");
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << s << std::endl;
 	std::cout << f << std::endl;
-	//separator("DIAMONDTRAP TEST");
-	//
-	//DiamondTrap d("Diamond");
-	//
-	//d.attack("boss");
-	//d.takeDamage(40);
-	//d.beRepaired(20);
-	//d.whoAmI();
-	//
-	//separator("COPIA E ATRIBUICAO");
-	//
-	//ClapTrap c(a);
-	//c.attack("copy-target");
-	//
-	//ClapTrap d2("Temp");
-	//d2 = a;
-	//d2.attack("assigned-target");
-	//
-	//separator("DESTRUICAO EM CASCATA");
-	//{
-	//	DiamondTrap temp("TempDiamond");
-	//	temp.attack("enemy");
-	//}
+	std::cout << d << std::endl;
+	std::cout << d2 << std::endl;
 	separator("FIM DOS TESTES");
 	return 0;
 }

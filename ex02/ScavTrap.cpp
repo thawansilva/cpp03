@@ -6,7 +6,7 @@
 /*   By: thaperei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 16:13:17 by thaperei          #+#    #+#             */
-/*   Updated: 2026/03/15 16:13:17 by thaperei         ###   ########.fr       */
+/*   Updated: 2026/03/16 19:38:54 by thaperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,17 @@ ScavTrap::~ScavTrap()
 ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other)
 {
 	*this = other;
+	std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap& other)
 {
 	if (this != &other)
 	{
-		name = other.getName();
-		hitPoint = other.getHit();
-		energyPoint = other.getEnergy();
-		attackDamage = other.getAttackDamage();
+		name = other.name;
+		hitPoint = other.hitPoint;
+		energyPoint = other.energyPoint;
+		attackDamage = other.attackDamage;
 	}
 	return *this;
 }

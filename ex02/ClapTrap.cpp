@@ -12,6 +12,12 @@
 
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap(): name("Unnamed"), hitPoint(10),
+	energyPoint(10), attackDamage(0)
+{
+	std::cout << "Default ClapTrap "<< name << " created" << std::endl;
+}
+
 ClapTrap::ClapTrap(const std::string& name): name(name), hitPoint(10),
 	energyPoint(10), attackDamage(0)
 {

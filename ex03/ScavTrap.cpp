@@ -12,6 +12,14 @@
 
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap(): ClapTrap("Unnamed")
+{
+	hitPoint = 100;
+	energyPoint = 50;
+	attackDamage = 20;
+	std::cout << "Default ScavTrap " << name << " created" << std::endl;
+}
+
 ScavTrap::ScavTrap(const std::string& name): ClapTrap(name)
 {
 	hitPoint = 100;
@@ -34,23 +42,23 @@ ScavTrap&	ScavTrap::operator=(const ScavTrap& other)
 {
 	if (this != &other)
 	{
-		this->name = other.name;
-		this->hitPoint = other.hitPoint;
-		this->energyPoint = other.energyPoint;
-		this->attackDamage = other.attackDamage;
+		name = other.getName();
+		hitPoint = other.getHit();
+		energyPoint = other.getEnergy();
+		attackDamage = other.getAttackDamage();
 	}
 	return *this;
 }
 
 void	ScavTrap::attack(const std::string& target)
 {
-	if (this->energyPoint <= 0 || this->hitPoint <= 0)
+	if (energyPoint <= 0 || hitPoint <= 0)
 		return ;
-	this->energyPoint--;
+	energyPoint--;
 	std::cout << "ScavTrap " ;
-	std::cout << this->name << " attacks ";
+	std::cout << name << " attacks ";
 	std::cout << target << ", causing ";
-	std::cout << this->attackDamage << " points of damage!" << std::endl;
+	std::cout << attackDamage << " points of damage!" << std::endl;
 }
 
 void	ScavTrap::guardGate()

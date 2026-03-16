@@ -16,7 +16,7 @@
 class ClapTrap
 {
 public:
-
+	ClapTrap();
 	ClapTrap(const std::string& name);
 	~ClapTrap();
 	ClapTrap(const ClapTrap& other);

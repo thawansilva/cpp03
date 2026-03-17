@@ -21,12 +21,6 @@ void separator(std::string title)
 
 int main()
 {
-	separator("CLAPTRAP BASICO");
-	
-	ClapTrap a("Alpha");
-	ScavTrap b("Betha");
-	FragTrap f("Frag");
-
 	separator("DIAMONDTRAP TEST");
 	DiamondTrap d("Diamond");
 	
@@ -37,26 +31,13 @@ int main()
 	d.highFivesGuys();
 	d.guardGate();
 	
-	separator("COPIA E ATRIBUICAO");
-	
-	ClapTrap c(a);
-	c.attack("copy-target");
-	
-	ClapTrap d2("Temp");
-	d2 = a;
-	d2.attack("assigned-target");
-	
 	separator("DESTRUICAO EM CASCATA");
 	{
 		DiamondTrap temp("TempDiamond");
 		temp.attack("enemy");
 	}
 	separator("RESULT");
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << f << std::endl;
 	std::cout << d << std::endl;
-	std::cout << d2 << std::endl;
 	separator("FIM DOS TESTES");
 	return 0;
 }

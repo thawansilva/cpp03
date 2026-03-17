@@ -18,23 +18,6 @@ void separator(std::string title)
 
 int main()
 {
-    separator("CLAPTRAP BASICO");
-    ClapTrap a("Alpha");
-    ClapTrap b("Beta");
-
-    a.attack("Beta");
-    b.takeDamage(0);
-    b.beRepaired(5);
-
-    separator("ENERGIA ACABANDO");
-    for (int i = 0; i < 12; i++)
-        a.attack("dummy");
-
-    separator("DANO EXCESSIVO");
-    b.takeDamage(1000);
-    b.attack("ghost");
-    b.beRepaired(5);
-
     separator("SCAVTRAP TEST");
 
     ScavTrap s("Guardian");
@@ -44,8 +27,6 @@ int main()
     s.guardGate();
 
     separator("RESULT");
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
 	std::cout << s << std::endl;
     separator("FIM DOS TESTES");
     return 0;

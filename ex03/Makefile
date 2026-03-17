@@ -1,4 +1,4 @@
-NAME := flagtrap
+NAME := diamondtrap
 
 # Source files and Objects
 SRC := main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
@@ -6,7 +6,7 @@ OBJS := $(SRC:%.cpp=%.o)
 
 # Flags
 C++ := c++
-CFLAGS := -Wall -Wextra -Werror -std=c++98
+CFLAGS := -Wall -Wextra -Werror -Wshadow -std=c++98
 CPPFLAGS := $(addprefix -I, .)
 
 all: $(NAME) 

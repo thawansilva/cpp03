@@ -27,7 +27,7 @@ public:
 	void			attack(const std::string& target);
 	void			whoAmI();
 private:
-	std::string		name;
+	std::string		_name;
 };
 
 std::ostream&	operator<<(std::ostream& out, const DiamondTrap& src);

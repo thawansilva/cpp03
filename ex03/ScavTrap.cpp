@@ -14,23 +14,23 @@
 
 ScavTrap::ScavTrap(): ClapTrap("Unnamed")
 {
-	hitPoint = 100;
-	energyPoint = 50;
-	attackDamage = 20;
-	std::cout << "Default ScavTrap " << this->name << " created" << std::endl;
+	_hitPoint = 100;
+	_energyPoint = 50;
+	_attackDamage = 20;
+	std::cout << "Default ScavTrap " << this->_name << " created" << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string& name): ClapTrap(name)
 {
-	hitPoint = 100;
-	energyPoint = 50;
-	attackDamage = 20;
-	std::cout << "ScavTrap " << name << " created" << std::endl;
+	_hitPoint = 100;
+	_energyPoint = 50;
+	_attackDamage = 20;
+	std::cout << "ScavTrap " << _name << " created" << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap "<< name << " destroyed" << std::endl;
+	std::cout << "ScavTrap "<< _name << " destroyed" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other)
@@ -43,28 +43,28 @@ ScavTrap&	ScavTrap::operator=(const ScavTrap& other)
 {
 	if (this != &other)
 	{
-		name = other.name;
-		hitPoint = other.hitPoint;
-		energyPoint = other.energyPoint;
-		attackDamage = other.attackDamage;
+		_name = other._name;
+		_hitPoint = other._hitPoint;
+		_energyPoint = other._energyPoint;
+		_attackDamage = other._attackDamage;
 	}
 	return *this;
 }
 
 void	ScavTrap::attack(const std::string& target)
 {
-	if (energyPoint <= 0 || hitPoint <= 0)
+	if (_energyPoint <= 0 || _hitPoint <= 0)
 		return ;
-	energyPoint--;
+	_energyPoint--;
 	std::cout << "ScavTrap " ;
-	std::cout << name << " attacks ";
+	std::cout << _name << " attacks ";
 	std::cout << target << ", causing ";
-	std::cout << attackDamage << " points of damage!" << std::endl;
+	std::cout << _attackDamage << " points of damage!" << std::endl;
 }
 
 void	ScavTrap::guardGate()
 {
-	std::cout << this->name << " is in Gate keeper mode" << std::endl;
+	std::cout << this->_name << " is in Gate keeper mode" << std::endl;
 }
 
 std::ostream&	operator<<(std::ostream& out, const ScavTrap& src)

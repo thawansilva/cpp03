@@ -14,23 +14,23 @@
 
 FragTrap::FragTrap() : ClapTrap("Unnamed")
 {
-	hitPoint = 100;
-	energyPoint = 100;
-	attackDamage = 30;
-	std::cout << "Default FragTrap "<< name << " created" << std::endl;
+	_hitPoint = 100;
+	_energyPoint = 100;
+	_attackDamage = 30;
+	std::cout << "Default FragTrap "<< _name << " created" << std::endl;
 }
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 {
-	hitPoint = 100;
-	energyPoint = 100;
-	attackDamage = 30;
-	std::cout << "FragTrap "<< name << " created" << std::endl;
+	_hitPoint = 100;
+	_energyPoint = 100;
+	_attackDamage = 30;
+	std::cout << "FragTrap "<< _name << " created" << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap "<< name << " destroyed" << std::endl;
+	std::cout << "FragTrap "<< _name << " destroyed" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& other): ClapTrap(other)
@@ -43,10 +43,10 @@ FragTrap&	FragTrap::operator=(const FragTrap& other)
 {
 	if (this != &other)
 	{
-		name = other.name;
-		hitPoint = other.hitPoint;
-		energyPoint = other.energyPoint;
-		attackDamage = other.attackDamage;
+		_name = other._name;
+		_hitPoint = other._hitPoint;
+		_energyPoint = other._energyPoint;
+		_attackDamage = other._attackDamage;
 	}
 	return *this;
 }

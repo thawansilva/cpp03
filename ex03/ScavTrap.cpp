@@ -6,7 +6,7 @@
 /*   By: thaperei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 16:13:17 by thaperei          #+#    #+#             */
-/*   Updated: 2026/03/16 19:38:54 by thaperei         ###   ########.fr       */
+/*   Updated: 2026/03/16 20:58:27 by thaperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ScavTrap::ScavTrap(): ClapTrap("Unnamed")
 	hitPoint = 100;
 	energyPoint = 50;
 	attackDamage = 20;
-	std::cout << "Default ScavTrap " << name << " created" << std::endl;
+	std::cout << "Default ScavTrap " << this->name << " created" << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string& name): ClapTrap(name)
@@ -64,7 +64,7 @@ void	ScavTrap::attack(const std::string& target)
 
 void	ScavTrap::guardGate()
 {
-	std::cout << name << " is in Gate keeper mode" << std::endl;
+	std::cout << this->name << " is in Gate keeper mode" << std::endl;
 }
 
 std::ostream&	operator<<(std::ostream& out, const ScavTrap& src)
